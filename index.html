@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>Wedding Invitation</title>
+    <meta content="김태형과 양승희의 결혼식에 초대합니다." name="description"/>
+    <meta property="og:image" content="images/IMG_5150_modified.jpg">
+    <meta property="fb:app_id" content="781066922265598" />
+    <meta property="fb:admins" content="Choi.Anderson"/>
+    <link href="images/favicon/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
+    <link href="images/favicon/apple-touch-icon.png" rel="icon" sizes="32x32" type="image/png">
+    <link href="images/favicon/apple-touch-icon.png" rel="icon" sizes="16x16" type="image/png">
+    <link href="https://fonts.googleapis.com/css?family=Dosis:400,500" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
+    <link href="css/ekko-lightbox.css" rel="stylesheet">
+    <link href="styles/main.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Gamja+Flower|Gugi|Nanum+Brush+Script|Noto+Serif+KR|Stylish|Sunflower:300"
+          rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-2.2.1.js"></script>
+
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/remarkable/1.7.1/remarkable.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        function sendMail() { 
+
+            (function () {
+                emailjs.init("user_yjLL5xG0A3kkOCH5BGIDh");
+                emailjs.send("wedding-mail", "gift_send", {
+                    name: $("#sender-name").value,
+                    gift: $("#gift-name").text(),
+                    message: $("#sender-message").value
+                }).then(function (response) {
+                    console.log("SUCCESS. status=%d, text=%s", response.status, response.text);
+                }, function (err) {
+                    console.log("FAILED. error=", err);
+                });
+            })();
+        }
+
+        function findGetParameter(parameterName) {
+            var result = null,
+                tmp = [];
+            location.search
+                .substr(1)
+                .split("&")
+                .forEach(function (item) {
+                  tmp = item.split("=");
+                  if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+                });
+            return result;
+        }
+
+        $(document).ready(function () {
+
+            function getText(){
+                var result = null;
+                $.ajax( { url: "https://raw.githubusercontent.com/AndersonChoi/wedding-card/master/README.md",
+                        type: 'get',
+                        dataType: 'html',
+                        async: false,
+                        success: function(data) { result = data; }
+                    }
+                );
+                FileReady = true;
+                return result;
+            }
+            var markdown_source = getText();
+            var comment_contents = markdown_source.split("축하의 말")[1];
+
+            var md = new Remarkable();
+            $("#comments").append(md.render(comment_contents));
+
+            
+            if(findGetParameter('gift')=='false'){
+                $('#gifts').hide();
+            }
+        });
+    </script>
+	
+    <script>
+	// When the user clicks on <div>, open the popup
+	function AccountPopUp1() {
+	  var popup = document.getElementById("myPopup1");
+	  popup.classList.toggle("show");
+	}
+	
+	function AccountPopUp2() {
+	  var popup = document.getElementById("myPopup2");
+	  popup.classList.toggle("show");
+	}
+    </script>
+</head>
+
+<body id="top">
+<header></header>
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v3.2"></script>
+<div class="page-content">
+    <div class="div">
+        <div class="ww-home-page" id="home">
+            <div class="ww-wedding-announcement d-flex align-items-center justify-content-start">
+                <div class="container ww-announcement-container">
+                    <br><br><br><br><br><br><br><br><br><br>
+                    <p class="mt-1 ww-couple-name ww-title" style="font-size:2.0em">Taehyeong & Seunghee</p>
+                    <p class="h2 mt-1 ww-title" style="font-family: 'Nanum Brush Script', cursive; font-size:1.7em">
+                        김태형 그리고 양승희,<!--<br>우리 결혼합니다.-->
+                    </p>
+                    <p class="h2 mt-1 ww-title" style="font-family: 'Noto Serif KR', serif; font-size:1.0em; letter-spacing:0px">
+                        <b style="font-size:1.0em;">2020. 10. 17 (토) PM 5:30<br>잠실 롯데호텔 · 3층 · 크리스탈볼룸</b>
+                    </p>
+                </div>
+            </div>
+        </div>
+		<div class="ww-section" id="announcement">
+            <div class="container">
+                <div class="row text-center">
+					
+                    <div>
+			<img alt="Invitation" class="img-fluid" src="images/image19.jpg"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+		<div class="ww-section" id="announcement2">
+            <div class="container">
+                <div class="my-3 text-center">
+					<br><br>
+					<div>
+						<img alt="Invitation" class="img-fluid" width="350" src="images/announcement.png"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+		<div class="ww-section" id="introduce">
+            <div class="container">
+                <div class="row text-center">
+					<br><br>
+                    <div>
+						<img alt="Bride and Groom" class="img-fluid" src="images/new_intro.jpg"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+		
+		<div class="ww-section" id="gallery">
+            <div class="ww-photo-gallery">
+                <div class="container">
+					<br><br>
+                    <!--<h2 class="h1 text-center pb-3 ww-title" style="font-family: 'Noto Serif KR', serif;">포토 갤러리</h2>-->
+                    <div class="ww-gallery">
+                        <div class="card-columns">
+				
+                            <!--<div class="card" data-groups="[&quot;party&quot;,&quot;wedding&quot;]">
+                                <a data-gallery="ww-gallery" data-toggle="lightbox">
+                                    <img class="img-fluid" src="images/image4.jpg"/>
+                                </a>
+                            </div>-->
+                            <div class="card" data-groups="[&quot;vacation&quot;]">
+                                <a data-gallery="ww-gallery" data-toggle="lightbox">
+					<a href="images/image9.jpg">
+                                    		<img class="img-fluid" src="images/image9.jpg"/>
+					</a>
+                                </a>
+                            </div>
+			    <!--
+                            <div class="card" data-groups="[&quot;party&quot;,&quot;vacation&quot;]">
+                                <a data-gallery="ww-gallery" data-toggle="lightbox">
+                                    <img class="img-fluid" src="images/image10.jpg"/>
+                                </a>
+                            </div>
+			    -->
+			    <!--
+                            <div class="card" data-groups="[&quot;vacation&quot;]">
+                                <a data-gallery="ww-gallery" data-toggle="lightbox">
+					<a href="images/image13.jpg">
+                                    <img class="img-fluid" src="images/image13.jpg"/>
+					</a>
+                                </a>
+                            </div>
+			    -->
+                            <!--<div class="card" data-groups="[&quot;wedding&quot;,&quot;ceremony&quot;,&quot;party&quot;]">
+                                <a data-gallery="ww-gallery" data-toggle="lightbox">
+					<a href="images/image14.jpg">
+                                    <img class="img-fluid" src="images/image14.jpg"/>
+					</a>
+                                </a>
+                            </div>-->
+			    <!--
+                            <div class="card" data-groups="[&quot;vacation&quot;]">
+                                <a data-gallery="ww-gallery" data-toggle="lightbox">
+                                    <img class="img-fluid" src="images/image12.jpg"/>
+                                </a>
+                            </div>
+			    -->			
+			    <div class="card" data-groups="[&quot;vacation&quot;]">
+                                <a data-gallery="ww-gallery" data-toggle="lightbox">
+					<a href="images/new_img_3.jpg">
+                                    <img class="img-fluid" src="images/new_img_3.jpg"/>
+					</a>
+                                </a>
+                            </div>
+
+			    <div class="card" data-groups="[&quot;vacation&quot;]">
+                                <a data-gallery="ww-gallery" data-toggle="lightbox">
+					<a href="images/new_img_4.jpg">
+                                    <img class="img-fluid" src="images/new_img_4.jpg"/>
+					</a>
+                                </a>
+                            </div>
+			    
+			    <div class="card" data-groups="[&quot;vacation&quot;]">
+                                <a data-gallery="ww-gallery" data-toggle="lightbox">
+					<a href="images/new_img_5.jpg">
+                                    <img class="img-fluid" src="images/image22.jpg"/>
+					</a>
+                                </a>
+                            </div>
+			    
+			    <div class="card" data-groups="[&quot;vacation&quot;]">
+                                <a data-gallery="ww-gallery" data-toggle="lightbox">
+					<a href="images/1601288045407.jpg">
+                                    <img class="img-fluid" src="images/1601288045407.jpg"/>
+					</a>
+                                </a>
+                            </div>
+			    <div class="card" data-groups="[&quot;vacation&quot;]">
+                                <a data-gallery="ww-gallery" data-toggle="lightbox">
+					<a href="images/new_img_2.jpg">
+                                    <img class="img-fluid" src="images/new_img_2.jpg"/>
+					</a>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+		
+    </div>
+</div>
+
+    
+    
+<div class="ww-section ww-rsvp-detail" id="map">
+    <div class="container">
+        <div class="col text-center">
+			<br><br>
+            <h2 class="h1 text-center pb-3 ww-title" style="font-family: 'Noto Serif KR', serif;">오시는 길</h2>
+            <div>
+                <h5 style="font-family: 'Noto Serif KR', serif;">서울잠실 롯데호텔 3층 크리스탈볼룸</h5>
+                <h6 style="font-family: 'Noto Serif KR', serif;">(서울특별시 송파구 올림픽로 240, 롯데호텔 월드)</h6>
+		    
+            </div>
+		<div class="col text-center">
+		    <label style="font-family: 'Noto Serif KR', serif; font-size: 15px;">
+			* 자차 - 호텔 주차장 지하 2층 H구역에 주차 <br>
+			* 지하철 - 2호선 잠실역 3번 출구 이용
+		    </label>
+		</div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-12">
+                <div class="my-3 text-center">
+                    <a href="http://naver.me/xzTJ5X6o">
+                        <img alt="naver-map" class="map-icon" id="naver-map"
+                             src="images/map/naver-map.png"/>
+                    </a>
+                    <a href="http://kko.to/xLaqpcSD0">
+                        <img alt="kakao-map" class="map-icon" id="kakao-map"
+                             src="images/map/kakao-map.png"/>
+                    </a>
+                    <a href="https://goo.gl/maps/qv9TUvYFi18MXQPP8">
+                        <img alt="google-map" class="map-icon" id="google-map"
+                             src="images/map/google-map.png"/>
+                    </a>
+                </div>
+                <div class="my-3">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3164.846686077062!2d127.09779231549716!3d37.511533979808156!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca5a0c74235c7%3A0xf186fe4634b0497a!2z66Gv642w7Zi47YWUIOyblOuTnA!5e0!3m2!1sko!2skr!4v1600086252925!5m2!1sko!2skr" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--
+<div class="ww-section ww-rsvp-detail" id="map">
+    <div class="container">
+	
+		<div class="col text-center">
+			<br>
+            <h4 style="font-family: 'Noto Serif KR', serif;">신랑 & 신부에게 마음 전하기</h4>
+			<br>
+        </div>
+		
+        <div class="col text-center">
+			<div class="popup" onclick="AccountPopUp1()">
+			<button class="btn btn-primary btn-submit" type="submit">신랑 계좌번호 보기</button></form>
+			  <span class="popuptext" id="myPopup1">신한은행 <br> 110-321-876009 <br> 김태형</span>
+			</div>
+
+			<div class="popup" onclick="AccountPopUp2()">
+			<button class="btn btn-primary btn-submit" type="submit">신부 계좌번호 보기</button></form>
+			  <span class="popuptext" id="myPopup2">국맨은행 <br> 5478-0104-024366 <br> 양재창</span>
+			</div>
+        </div>
+    </div>
+</div>
+-->
+
+<footer></footer>
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="js/aos.js"></script>
+<script src="js/parallax.min.js"></script>
+<script src="js/ekko-lightbox.min.js"></script>
+<script src="scripts/main.js"></script>
+
+<!--
+<div class="bottom_right"><i class="fa fa-arrow-up fa-2x" id="go-to-top"></i>
+</div>
+
+<div class="bottom_left">
+    <audio id="player" src="mus.mp3"></audio>
+    <div>
+        <i class="fa fa-music fa-2x" onclick="document.getElementById('player').play()"></i>
+    </div>
+</div>
+-->
+</body>
+</html>
